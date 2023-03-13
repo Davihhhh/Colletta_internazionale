@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Colletta_internazionale
 {
-    internal class Importo
+    internal class Importo : IEquatable<Importo>, IComparable<Importo>
     {
         private double _valore;
         private string _valuta;
+
+        private string[] Valute_usabili = new string[5] { "$", "£", "€", "RUB", "¥" };
 
         public double Valore
         {
@@ -27,9 +29,12 @@ namespace Colletta_internazionale
             get { return _valuta; }
             private set 
             {
-                if (value == null || value.Length == 0)
+                if (value == null || value.Length == 0 )
                     throw new Exception("Valuta invalida");
-                else _valuta = value;
+                if(CheckValuta(value))
+                    _valuta = value;
+                else
+                    throw new Exception("Valuta invalida");
             }
         }
 #pragma warning disable CS8618
@@ -38,6 +43,17 @@ namespace Colletta_internazionale
         {
             Valore = importo;
             Valuta = valuta;
+        }
+        private bool CheckValuta(string str)
+        {
+            int c = Valute_usabili.Length;
+            for(int a = 0; a < c; c++)
+            {
+                if(Valute_usabili[a] == str)
+                    return true;
+                else { }
+            }
+            return false;
         }
 
         public bool Equals(Importo i)
@@ -50,6 +66,19 @@ namespace Colletta_internazionale
                 return true;
             else 
                 return false;
+        }
+        public override int GetHashCode()
+        {
+            return (Valuta, Valore).GetHashCode();
+        }
+        public int CompareTo(Importo p)
+        {
+            if (p == null)
+                return 1;
+            else
+                if (Valuta == p.Valuta)
+                return Valore.CompareTo(p.Valore);
+            else return 1;
         }
     }
 }

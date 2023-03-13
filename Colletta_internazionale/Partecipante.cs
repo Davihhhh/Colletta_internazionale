@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Colletta_internazionale
 {
-    internal class Partecipante
+    internal class Partecipante : IEquatable<Partecipante>, IComparable<Partecipante>
     {      
         private string _key;
-        private string _nome;
+        private string _nome;       
 
         public string Key
         {
@@ -23,12 +23,12 @@ namespace Colletta_internazionale
         }
         public string Nome
         {
-            get { return _key; }
+            get { return _nome; }
             private set {
                 if (value == null || value.Length == 0)
                     throw new Exception("Nome invalido");
                 else
-                    _key = value; 
+                    _nome = value; 
             }
         }
 #pragma warning disable CS8618
@@ -46,6 +46,17 @@ namespace Colletta_internazionale
             else if (this == p)
                 return true;
             else return false;
+        }
+        public override int GetHashCode()
+        {
+            return (Nome, Key).GetHashCode();
+        }
+        public int CompareTo(Partecipante p)
+        {
+            if (p == null)
+                return 1;
+            else
+                return Key.CompareTo(p.Key);
         }
     }
 }
