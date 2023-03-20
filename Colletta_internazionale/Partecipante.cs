@@ -35,7 +35,7 @@ namespace Colletta_internazionale
         public Partecipante(string nome)
 #pragma warning restore CS8618
         {
-            Key = GetHashCode().ToString();
+            Key = base.GetHashCode().ToString();
             Nome = nome;         
         }
 
@@ -56,7 +56,11 @@ namespace Colletta_internazionale
             if (p == null)
                 return 1;
             else
-                return Key.CompareTo(p.Key);
+                return Nome.CompareTo(p.Nome);
+        }
+        public override string ToString()
+        {
+            return Nome;
         }
     }
 }

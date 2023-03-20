@@ -11,7 +11,7 @@ namespace Colletta_internazionale
         private double _valore;
         private string _valuta;
 
-        private string[] Valute_usabili = new string[5] { "$", "£", "€", "RUB", "¥" };
+        private readonly string[] Valute_usabili = new string[5] { "$", "£", "€", "RUB", "¥" };
 
         public double Valore
         {
@@ -62,23 +62,45 @@ namespace Colletta_internazionale
                 return false;
             else if (this == i)
                 return true;
-            else if (Valore == i.Valore)
+            else if (Valore == i.Valore && Valuta == i.Valuta)
                 return true;
             else 
                 return false;
         }
         public override int GetHashCode()
         {
-            return (Valuta, Valore).GetHashCode();
+            return HashCode.Combine(Valuta, Valore);
         }
+
         public int CompareTo(Importo p)
         {
             if (p == null)
                 return 1;
-            else
-                if (Valuta == p.Valuta)
-                return Valore.CompareTo(p.Valore);
-            else return 1;
+            else               
+                return Valore.CompareTo(p.Valore);  
+        }
+        public override string ToString()
+        {
+            return Valore + "" + Valuta;
+        }
+        public double ValoreReale()
+        {           
+            switch(Valuta)
+            {
+                case "$":
+                    return Valore * 0.94;                   
+                case "€":
+                    return Valore;
+                case "£":
+                    return Valore * 1.15;
+                case "RUB":
+                    return Valore * 0.012;
+                case "¥":
+                    return Valore * 0.0072;
+                default:
+                    return -1;
+            }
+            
         }
     }
 }

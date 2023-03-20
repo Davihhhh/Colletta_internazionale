@@ -40,6 +40,9 @@
             this.buttonOrdinanome = new System.Windows.Forms.Button();
             this.buttonCercaImporto = new System.Windows.Forms.Button();
             this.buttonCercaNome = new System.Windows.Forms.Button();
+            this.buttonSampleVakute = new System.Windows.Forms.Button();
+            this.buttonTotale = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonAggiungi
@@ -163,11 +166,48 @@
             this.buttonCercaNome.UseVisualStyleBackColor = true;
             this.buttonCercaNome.Click += new System.EventHandler(this.buttonCercaNome_Click);
             // 
+            // buttonSampleVakute
+            // 
+            this.buttonSampleVakute.Enabled = false;
+            this.buttonSampleVakute.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonSampleVakute.Location = new System.Drawing.Point(27, 253);
+            this.buttonSampleVakute.Name = "buttonSampleVakute";
+            this.buttonSampleVakute.Size = new System.Drawing.Size(132, 29);
+            this.buttonSampleVakute.TabIndex = 12;
+            this.buttonSampleVakute.Text = "$, £, RUB, €, ¥";
+            this.buttonSampleVakute.UseVisualStyleBackColor = true;
+            // 
+            // buttonTotale
+            // 
+            this.buttonTotale.Enabled = false;
+            this.buttonTotale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonTotale.Location = new System.Drawing.Point(268, 412);
+            this.buttonTotale.Name = "buttonTotale";
+            this.buttonTotale.Size = new System.Drawing.Size(178, 29);
+            this.buttonTotale.TabIndex = 13;
+            this.buttonTotale.UseVisualStyleBackColor = true;
+            this.buttonTotale.Click += new System.EventHandler(this.buttonTotale_Click);
+            // 
+            // button4
+            // 
+            this.button4.Enabled = false;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.Location = new System.Drawing.Point(452, 412);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(177, 29);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "0.00";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 541);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonTotale);
+            this.Controls.Add(this.buttonSampleVakute);
             this.Controls.Add(this.buttonCercaNome);
             this.Controls.Add(this.buttonCercaImporto);
             this.Controls.Add(this.buttonOrdinanome);
@@ -201,5 +241,8 @@
         private Button buttonOrdinanome;
         private Button buttonCercaImporto;
         private Button buttonCercaNome;
+        private Button buttonSampleVakute;
+        private Button buttonTotale;
+        private Button button4;
     }
 }
