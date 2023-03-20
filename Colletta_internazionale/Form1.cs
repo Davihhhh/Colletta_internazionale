@@ -46,8 +46,8 @@ namespace Colletta_internazionale
         private void buttonCercaimporto_Click(object sender, EventArgs e)
         {
             double imp = 0;
-            string vl;
-            Importo i = new Importo(0, "vl");
+            string vl = "€";
+            Importo i = new Importo(0, vl);
             try { 
                 imp = Convert.ToDouble(textBoxImporto.Text);
                 vl = textBoxValuta.Text;
@@ -55,8 +55,20 @@ namespace Colletta_internazionale
             }
             catch (Exception) { MessageBox.Show("Importo invalido"); }
             if (Lista.ContainsValue(i)) 
-            { 
-
+            {
+                int c = 0;
+                foreach(KeyValuePair < Partecipante, Importo > a in Lista)
+                { 
+                    if(a.Value.Valore == imp && a.Value.Valuta == vl)
+                    {
+                        c++;
+                        MessageBox.Show(a.Key.Nome + " ha versato questo importo");
+                    }
+                }
+                if (c == 0) 
+                {
+                    MessageBox.Show("Nessuno ha versato questo importo");
+                }
             }
 
             else MessageBox.Show("Nessuno ha versato questo importo");
@@ -82,7 +94,7 @@ namespace Colletta_internazionale
             listView.Columns.Add("Valuta ");
             ListViewItem riga = new ListViewItem();
             string[] str = new string[3];
-            foreach(KeyValuePair<Partecipante, Importo> rig in tabella)
+            foreach (KeyValuePair<Partecipante, Importo> rig in tabella) 
             {
                 str[0] = rig.Key.Nome;
                 str[1] = rig.Value.Valore+"";

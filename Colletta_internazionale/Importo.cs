@@ -47,7 +47,7 @@ namespace Colletta_internazionale
         private bool CheckValuta(string str)
         {
             int c = Valute_usabili.Length;
-            for(int a = 0; a < c; c++)
+            for(int a = 0; a < c; a++)
             {
                 if(Valute_usabili[a] == str)
                     return true;
