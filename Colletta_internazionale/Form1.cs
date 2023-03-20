@@ -103,5 +103,37 @@ namespace Colletta_internazionale
                 listView.Items.Add(riga);
             }
         }
+
+        private void buttonCercaNome_Click(object sender, EventArgs e)
+        {
+            string nome = "sample";
+            string vl = "€";
+            Importo i = new Importo(0, vl);
+            try
+            {
+                imp = Convert.ToDouble(textBoxImporto.Text);
+                vl = textBoxValuta.Text;
+                i = new Importo(imp, vl);
+            }
+            catch (Exception) { MessageBox.Show("Importo invalido"); }
+            if (Lista.ContainsValue(i))
+            {
+                int c = 0;
+                foreach (KeyValuePair<Partecipante, Importo> a in Lista)
+                {
+                    if (a.Value.Valore == imp && a.Value.Valuta == vl)
+                    {
+                        c++;
+                        MessageBox.Show(a.Key.Nome + " ha versato questo importo");
+                    }
+                }
+                if (c == 0)
+                {
+                    MessageBox.Show("Nessuno ha versato questo importo");
+                }
+            }
+
+            else MessageBox.Show("Nessuno ha versato questo importo");
+        }
     }
 }

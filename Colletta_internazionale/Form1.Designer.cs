@@ -38,7 +38,8 @@
             this.listView = new System.Windows.Forms.ListView();
             this.buttonOrdinaimporto = new System.Windows.Forms.Button();
             this.buttonOrdinanome = new System.Windows.Forms.Button();
-            this.buttonCercaimporto = new System.Windows.Forms.Button();
+            this.buttonCercaImporto = new System.Windows.Forms.Button();
+            this.buttonCercaNome = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonAggiungi
@@ -140,23 +141,35 @@
             this.buttonOrdinanome.UseVisualStyleBackColor = true;
             this.buttonOrdinanome.Click += new System.EventHandler(this.buttonOrdinanome_Click);
             // 
-            // buttonCercaimporto
+            // buttonCercaImporto
             // 
-            this.buttonCercaimporto.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCercaimporto.Location = new System.Drawing.Point(12, 447);
-            this.buttonCercaimporto.Name = "buttonCercaimporto";
-            this.buttonCercaimporto.Size = new System.Drawing.Size(190, 32);
-            this.buttonCercaimporto.TabIndex = 10;
-            this.buttonCercaimporto.Text = "Cerca per importo";
-            this.buttonCercaimporto.UseVisualStyleBackColor = true;
-            this.buttonCercaimporto.Click += new System.EventHandler(this.buttonCercaimporto_Click);
+            this.buttonCercaImporto.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCercaImporto.Location = new System.Drawing.Point(12, 485);
+            this.buttonCercaImporto.Name = "buttonCercaImporto";
+            this.buttonCercaImporto.Size = new System.Drawing.Size(190, 32);
+            this.buttonCercaImporto.TabIndex = 10;
+            this.buttonCercaImporto.Text = "Cerca per importo";
+            this.buttonCercaImporto.UseVisualStyleBackColor = true;
+            this.buttonCercaImporto.Click += new System.EventHandler(this.buttonCercaimporto_Click);
+            // 
+            // buttonCercaNome
+            // 
+            this.buttonCercaNome.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCercaNome.Location = new System.Drawing.Point(12, 447);
+            this.buttonCercaNome.Name = "buttonCercaNome";
+            this.buttonCercaNome.Size = new System.Drawing.Size(190, 32);
+            this.buttonCercaNome.TabIndex = 11;
+            this.buttonCercaNome.Text = "Cerca per nome";
+            this.buttonCercaNome.UseVisualStyleBackColor = true;
+            this.buttonCercaNome.Click += new System.EventHandler(this.buttonCercaNome_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 541);
-            this.Controls.Add(this.buttonCercaimporto);
+            this.Controls.Add(this.buttonCercaNome);
+            this.Controls.Add(this.buttonCercaImporto);
             this.Controls.Add(this.buttonOrdinanome);
             this.Controls.Add(this.buttonOrdinaimporto);
             this.Controls.Add(this.listView);
@@ -186,6 +199,7 @@
         private ListView listView;
         private Button buttonOrdinaimporto;
         private Button buttonOrdinanome;
-        private Button buttonCercaimporto;
+        private Button buttonCercaImporto;
+        private Button buttonCercaNome;
     }
 }
